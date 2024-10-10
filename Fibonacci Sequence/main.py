@@ -23,6 +23,37 @@
 
 
 
+def main():
+    print(recursive_fibonacci(5))
+    print(iterative_fibonacci(10))
+    print(memoization_fibonacci(10))
+    
 #Recursive Method 
-def recursive_fibonacci():
-    sequence 
+def recursive_fibonacci(f):
+    def fibonacci(n):
+        if n <= 1: 
+            return n 
+        else:
+            return fibonacci(n-1) + fibonacci(n-2)
+        
+    return fibonacci(f)
+
+#Iterative Method
+def iterative_fibonacci(n):
+    a, b = 0, 1
+    for i in range(n):
+        a, b = b, a+b
+    return a
+
+#Memoization Method
+def memoization_fibonacci(n):
+    memo = {0: 0, 1: 1}
+    def fibonacci(n):
+        if n not in memo:
+            memo[n] = fibonacci(n-1) + fibonacci(n-2)
+        return memo[n]
+    return fibonacci(n)
+
+# Time complexity: O(n)
+if __name__ == "__main__":
+    main()

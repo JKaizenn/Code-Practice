@@ -16,3 +16,17 @@
 # Output:
 
 # flatten_array(array) -> [1, 2, 3, 4, 5, 6]
+
+
+nested_list = [1, [2, 3], [4, [5, 6]], 7]
+
+def flatten_array(nested_list):
+    flat_list = []
+    for i in nested_list:
+        if type(i) == list:
+            flat_list.extend(flatten_array(i))
+        else:
+            flat_list.append(i)
+    return flat_list
+
+print(flatten_array(nested_list))
